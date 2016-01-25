@@ -50,6 +50,7 @@ public class MusicOrganizer
     /**
      * Play a track in the collection.
      * @param index The index of the track to be played.
+     * Al usar el metodo se incrementa el contador de la cancion en uno.
      */
     public void playTrack(int index)
     {
@@ -181,6 +182,20 @@ public class MusicOrganizer
             if (track.getTitle().contains(nombreDeCancion)) {
                 System.out.println(track.getDetails());
             }
+        }
+    }
+    
+    /**
+     * Resetea el contador de reproduccion de la cancion a 0.
+     */
+    public void resetearContador(int index)
+    {
+        if(indexValid(index)) {
+            Track track = tracks.get(index);            
+            track.resetearContadorReproducciones();
+        }
+        else {
+            System.out.println("El indice introducido no puede ser negativo");
         }
     }
 }
