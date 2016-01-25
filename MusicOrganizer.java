@@ -56,7 +56,10 @@ public class MusicOrganizer
      */
     public void playTrack(int index)
     {
-        if(indexValid(index)) {
+        if (seEstaReproduciendo == true) {
+            System.out.println("Ya hay una cancion reproduciendose. No se puede reproducir otra");
+        }
+        else if (indexValid(index)) {
             Track track = tracks.get(index);
             player.startPlaying(track.getFilename());
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
@@ -127,7 +130,10 @@ public class MusicOrganizer
      */
     public void playFirst()
     {
-        if(tracks.size() > 0) {
+        if (seEstaReproduciendo == true) {
+            System.out.println("Ya hay una cancion reproduciendose. No se puede reproducir otra");
+        }
+        else if (tracks.size() > 0) {
             player.startPlaying(tracks.get(0).getFilename());
             seEstaReproduciendo = true;
         }
