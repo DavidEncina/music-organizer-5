@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * A class to hold details of audio tracks.
@@ -20,6 +21,7 @@ public class MusicOrganizer
     private boolean seEstaReproduciendo;
     /**
      * Create a MusicOrganizer
+     * Al crear un objeto MusicOrganizer, se indica por parámetro el nombre de la carpeta donde están los archivos mp3 que manejará el organizador.
      */
     public MusicOrganizer(String nombreCarpetaMusica)
     {
@@ -262,5 +264,14 @@ public class MusicOrganizer
                 it.remove();
             }
         }
+    }
+    
+    /**
+     * Reproduce una de las canciones del organizador al azar.
+     */
+    public void playRandom()
+    {
+        Random cancion = new Random();
+        playTrack(cancion.nextInt(tracks.size()));
     }
 }
